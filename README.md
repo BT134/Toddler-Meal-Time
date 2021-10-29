@@ -47,6 +47,9 @@ App can be viewed [HERE]()
 * [Express.js](https://expressjs.com/)
 * [mongoose](https://mongoosejs.com/docs/)
 * [Compression](https://www.npmjs.com/package/compression)
+* [Graphql](https://graphql.org/)
+* [React](https://reactjs.org/)
+* [JWT](https://jwt.io/)
 
 ## Author
 
