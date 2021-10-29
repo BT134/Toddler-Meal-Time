@@ -12,13 +12,20 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
   },
   password: {
     type: String,
     required: true,
     minlength: 5
   },
+  Recipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipes',
+    },
+  ],
 });
 
 // set up pre-save middleware to create password
