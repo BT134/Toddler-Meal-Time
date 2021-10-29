@@ -1,0 +1,84 @@
+[
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": ["1 tbsp olive oil",
+        "1 small onion, peeled and finely chopped",
+        "1 small leek, trimmed and thinly sliced",
+        "½ stick celery, diced",
+        "½ small red pepper, deseeded and diced",
+        "1 small carrot, peeled and grated",
+        "50g mushrooms, diced",
+        "½ apple, peeled, cored and grated",
+        "1 clove garlic, peeled and crushed",
+        "1 x 400g tin chopped tomatoes",
+        "450g minced beef",
+        "4 tbsp tomato purée",
+        "2 tbsp ketchup",
+        "250ml beef stock",
+        "½ tsp dried oregano",
+        "1 tbsp grated Parmesan",
+        "small handful of fresh basil leaves"],
+        "method": ["Place the oil in a large frying pan over a medium heat. Add the vegetables and apple and fry for 10 minutes until soft. Stir in the garlic and fry for 10 seconds.",
+        "Transfer to a blender, add the chopped tomatoes and whizz until smooth. Set aside.",
+        "Add the mince to the frying pan and place over a medium-high heat. Fry for 4 minutes, breaking the mince up with a wooden spoon, until browned (you may need to do this in batches).",
+        "Place the tomato and vegetable sauce in the pan with the mince, then add the tomato purée, ketchup, stock and oregano. Bring to a simmer and cook for 40–45 minutes, until the sauce is thick. Season to taste with salt and pepper.",
+        "Serve with spaghetti and a sprinkling of Parmesan and fresh basil leaves."],
+        "preptime": 20,
+        "cooktime": 40
+    },
+    {
+        "title": "Margarita Pizza Slices",
+        "image": "",
+        "ingredients": ["2 Warburtons Half White Half Wholemeal thins",
+        "4 tbsp green pesto",
+        "75g mozzarella cheese, grated",
+        "150g yellow and red cherry tomatoes, halved",
+        "2 tbsp sweetcorn"],
+        "method": ["Preheat the grill.",
+        "Put the four halves onto a baking sheet. Spread the pesto over the base and top with the mozzarella, cherry tomatoes and sweetcorn.",
+        "Place under the grill for 8 minutes until melted and crisp. Slice each thin into two."],
+        "preptime": 5,
+        "cooktime": 8
+    },
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": "",
+        "method": "",
+        "preptime": "",
+        "cooktime": ""
+    },
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": "",
+        "method": "",
+        "preptime": "",
+        "cooktime": ""
+    },
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": "",
+        "method": "",
+        "preptime": "",
+        "cooktime": ""
+    },
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": "",
+        "method": "",
+        "preptime": "",
+        "cooktime": ""
+    },
+    {
+        "title": "Veggie-packed Bolognese",
+        "image": "",
+        "ingredients": "",
+        "method": "",
+        "preptime": "",
+        "cooktime": ""
+    }
+]
