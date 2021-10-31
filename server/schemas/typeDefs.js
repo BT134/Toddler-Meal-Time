@@ -14,8 +14,8 @@ const typeDefs = gql`
     image: String
     ingredients: [String]
     method: [String]
-    preptime: Number
-    cooktime: Number
+    preptime: Int
+    cooktime: Int
   }
   type Auth {
     token: ID!
@@ -33,7 +33,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     removeRecipe(recipeId: ID!) User
-    saveRecipe(recipeId: ID!, title: String!, image: String!, ingredients: [String], method: [String], preptime: Number!, cooktime: Number!) User
+    saveRecipe(recipeId: ID!, title: String!, image: String!, ingredients: [String], method: [String], preptime: Int!, cooktime: Int!) User
   }
 `;
 
