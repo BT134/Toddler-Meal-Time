@@ -20,8 +20,18 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
+              <Link className="btn btn-lg btn-info m-2" to="/">
+                Home
+              </Link>
               <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.username}'s profile
+                {Auth.getProfile().data.username}'s Recipes
+              </Link>
+
+              <Link className="btn btn-lg btn-info m-2" to="/search-ingredients">
+                Search by Ingredients
+              </Link>
+              <Link className="btn btn-lg btn-info m-2" to="/discover">
+                Discover
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
@@ -29,6 +39,15 @@ const Header = () => {
             </>
           ) : (
             <>
+              <Link className="btn btn-lg btn-info m-2" to="/">
+                Home
+              </Link>
+              <Link className="btn btn-lg btn-info m-2" to="/search-ingredients">
+                Search by Ingredients
+              </Link>
+              <Link className="btn btn-lg btn-info m-2" to="/discover">
+                Discover
+              </Link>
               <Link className="btn btn-lg btn-info m-2" to="/login">
                 Login
               </Link>
