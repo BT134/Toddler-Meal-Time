@@ -21,6 +21,7 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  
   type Query {
     user(id: String!): User
     users: [User]
