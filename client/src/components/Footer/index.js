@@ -1,10 +1,11 @@
 import React from 'react';
+import { Box } from "@chakra-ui/react"
 
 const Footer = () => {
 
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
+    <footer>
+      <Box position="absoulte" bottom="0">
         <h4>
           Made with{' '}
           <span
@@ -17,7 +18,7 @@ const Footer = () => {
           </span>{' '}
           by the Brenton Turnor.
         </h4>
-      </div>
+      </Box>
     </footer>
   );
 };

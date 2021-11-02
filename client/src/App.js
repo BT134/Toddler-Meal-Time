@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from "@chakra-ui/react"
 import { ApolloClient, InMemoryCache, ApolloProvider,createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -9,6 +10,7 @@ import Login from './pages/Login';
 //import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import './App.css';
 
 
 // Construct our main GraphQL API endpoint
@@ -39,7 +41,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <Box w="100%" p={2}>
           <Header />
           <div className="container">
             <Route exact path="/">
@@ -53,7 +55,7 @@ function App() {
             </Route>
           </div>
           <Footer />
-        </div>
+        </Box>
       </Router>
     </ApolloProvider>
   );

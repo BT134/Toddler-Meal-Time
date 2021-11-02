@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link as ReactLink} from 'react-router-dom';
+import { Link } from "@chakra-ui/react"
+import { Box, Container, Text, Heading } from "@chakra-ui/react"
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -9,55 +10,56 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">TMT</h1>
-          </Link>
-          <p className="m-0">Toddler Meal Times</p>
-        </div>
-        <div>
+    <header className="header">
+      <Container maxW="container.xlg" mb={6}>
+        <Box textAlign="center" pb={4} >
+          <ReactLink to="/">
+            <Heading as="h1" size="3xl">TMT</Heading>
+          </ReactLink>
+          <p>Toddler Meal Times</p>
+        </Box>
+        
+        <Box textAlign="center" p={2} >
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/">
+              <Link pr={6} as={ReactLink} to="/" >
                 Home
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link pr={6} as={ReactLink} to="/me">
                 {Auth.getProfile().data.username}'s Recipes
               </Link>
 
-              <Link className="btn btn-lg btn-info m-2" to="/search-ingredients">
+              <Link pr={6} as={ReactLink} to="/search-ingredients">
                 Search by Ingredients
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/discover">
+              <Link pr={6} as={ReactLink} to="/discover">
                 Discover
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/">
+              <Link pr={6} as={ReactLink} to="/">
                 Home
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/search-ingredients">
+              <Link pr={6} as={ReactLink} to="/search-ingredients">
                 Search by Ingredients
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/discover">
+              <Link pr={6} as={ReactLink} to="/discover">
                 Discover
               </Link>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link pr={6} as={ReactLink} to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link pr={6} as={ReactLink} to="/signup">
                 Signup
               </Link>
             </>
           )}
-        </div>
-      </div>
+        </Box>
+      </Container>
     </header>
   );
 };
