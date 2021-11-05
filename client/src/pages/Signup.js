@@ -41,7 +41,7 @@ const Signup = () => {
   return (
     <main>
       <Container maxW="container.md" mt={20} centerContent>
-        <Box>
+        <Box borderWidth="1px" borderRadius="lg" p="8" shadow="xl">
           <Heading as="h4" size="md" mb={4}>Sign Up</Heading>
           <div className="card-body">
             {data ? (
@@ -107,9 +107,7 @@ const Signup = () => {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
     </main>
   );
 };

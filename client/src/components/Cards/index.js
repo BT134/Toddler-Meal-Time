@@ -4,11 +4,11 @@ import { LinkBox, LinkOverlay } from "@chakra-ui/react"
 
 
 // Individual Cards 
-function Cards(props) {
+function Cards(recipes) {
     return (
       <LinkBox maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-        <Image src={props.image} />
-        <LinkOverlay href={props.recipeId}>
+        <Image src={recipes.image} />
+        <LinkOverlay href={recipes.recipeId}>
         <Box p="6">
             <Box
             mt="1"
@@ -17,7 +17,7 @@ function Cards(props) {
             lineHeight="tight"
             isTruncated
             >   
-            {props.title}
+            {recipes.title}
             </Box>
         </Box>
         </LinkOverlay>

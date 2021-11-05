@@ -44,8 +44,8 @@ const Login = (props) => {
   return (
     <main>
       <Container maxW="container.md" mt={20} centerContent>
-        <Box>
-          <Heading as="h4" size="md" pb={2}>Login</Heading>
+        <Box borderWidth="1px" borderRadius="lg" p="8" shadow="xl">
+          <Heading as="h4" size="md" pb={2} >Login</Heading>
           <div className="card-body">
             {data ? (
               <p>
@@ -106,9 +106,7 @@ const Login = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
     </main>
   );
 };
