@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 //import MyRecipes from './pages/MyRecipes';
-//import Profile from './pages/Profile';
+import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -52,6 +52,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/me">
+              <Profile />
             </Route>
           </div>
           <Footer />

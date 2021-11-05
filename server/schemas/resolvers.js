@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Recipe } = require('../models');
+const { User, Recipes } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -12,10 +12,10 @@ const resolvers = {
     },
     recipes: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Recipe.find(params).sort({ createdAt: -1 });
+      return Recipes.find(params).sort({ createdAt: -1 });
     },
     recipe: async (parent, { recipeId }) => {
-      return Recipe.findOne({ _id: recipeId });
+      return Recipes.findOne({ _id: recipeId });
     },
     me: async (parent, args, context) => {
       if (context.user) {

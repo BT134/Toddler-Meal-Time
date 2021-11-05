@@ -13,7 +13,7 @@ export const QUERY_USER = gql`
 export const QUERY_RECIPES = gql`
   query getRecipes {
     recipes {
-      recipeId
+      _id
       title
       image
       ingredients

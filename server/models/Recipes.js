@@ -12,20 +12,16 @@ const recipeSchema = new Schema({
     type: String
   },
   ingredients: {
-    type: String,
-    required: true,
+    type: [String],
   },
   method: {
-    type: String,
-    required: true,
+    type: [String],
   },
   preptime: {
     type: Number,
-    required: true,
   },
   cooktime: {
     type: Number,
-    required: true,
   },
 
 });

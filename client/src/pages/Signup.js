@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Button, Container, Box, FormControl, FormLabel, Heading } from "@chakra-ui/react"
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -39,10 +39,10 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+    <main>
+      <Container maxW="container.md" mt={20} centerContent>
+        <Box>
+          <Heading as="h4" size="md" mb={4}>Sign Up</Heading>
           <div className="card-body">
             {data ? (
               <p>
@@ -75,13 +75,13 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-primary"
+                <Button
+                  color="teal"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
                   Submit
-                </button>
+                </Button>
               </form>
             )}
 
@@ -91,8 +91,25 @@ const Signup = () => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+        </Box>
+      </Container>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </main>
   );
 };

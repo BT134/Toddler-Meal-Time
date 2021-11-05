@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as ReactLink} from 'react-router-dom';
 import { Link } from "@chakra-ui/react"
-import { Box, Container, Text, Heading } from "@chakra-ui/react"
+import { Box, Container, Heading } from "@chakra-ui/react"
 import Auth from '../../utils/auth';
 
 const Header = () => {

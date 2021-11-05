@@ -9,7 +9,7 @@ const typeDefs = gql`
     savedRecipes: [Recipe]
   }  
   type Recipe {
-    recipeId: ID
+    _id: ID
     title: String
     image: String
     ingredients: [String]

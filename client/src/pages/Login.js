@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import { Button, Container, Box, FormControl, FormLabel, Heading } from "@chakra-ui/react"
 
 import Auth from '../utils/auth';
 
@@ -41,25 +42,27 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+    <main>
+      <Container maxW="container.md" mt={20} centerContent>
+        <Box>
+          <Heading as="h4" size="md" pb={2}>Login</Heading>
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! Taking you {' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
+                  id="form-input"
                   placeholder="Your email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
+                  
                 />
                 <input
                   className="form-input"
@@ -69,13 +72,14 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block btn-primary"
+                <Button 
+                  ml={4}
+                  colorScheme="teal"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
-                  Submit
-                </button>
+                  Login
+                </Button>
               </form>
             )}
 
@@ -85,8 +89,26 @@ const Login = (props) => {
               </div>
             )}
           </div>
-        </div>
-      </div>
+        </Box>
+      </Container>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br><br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </main>
   );
 };

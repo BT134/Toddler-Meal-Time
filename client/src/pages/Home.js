@@ -1,9 +1,9 @@
 import React from 'react';
+import { useEffect } from 'react';
+import RecipeCards from '../components/RecipeCard';
 import { useQuery } from '@apollo/client';
 import { Box, Container, Image, FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     Input,
     Button } from "@chakra-ui/react"
 //import ThoughtList from '../components/ThoughtList';
@@ -12,10 +12,12 @@ import { Box, Container, Image, FormControl,
 import { QUERY_RECIPES } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_RECIPES);
+  const { data } = useQuery(QUERY_RECIPES);
+    
+  useEffect(() => console.log(data), [data]);
+
   const recipes = data?.recipes || [];
-
-
+    console.log(recipes)
 
   return (
     <main>
@@ -32,6 +34,12 @@ const Home = () => {
           
             </Box>
         </Box>
+      </Container>
+      <Container>
+          <Box>
+            <RecipeCards
+            recipes={recipes}/>
+          </Box>
       </Container>
     </main>
   );
