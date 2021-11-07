@@ -2,14 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import RecipeCards from '../components/RecipeCard';
 import { useQuery } from '@apollo/client';
-import { Box, Container, Image, FormControl,
-    FormLabel,
-    Input,
-    Button } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
+import SearchBar from '../components/SearchBar';
 //import ThoughtList from '../components/ThoughtList';
 //import ThoughtForm from '../components/ThoughtForm';
-
 import { QUERY_RECIPES } from '../utils/queries';
+
 
 const Home = () => {
   const { data } = useQuery(QUERY_RECIPES);
@@ -22,20 +20,9 @@ const Home = () => {
   return (
     <main>
       <Container maxW="container.xlg" centerContent>
-        <Box width="100pv">
-            <Image src="../images/food-background.png" alt="healthy food background" fit/>
-            <Box width="600px" position="absolute" top="350" left="650" textAlign="center">
-                
-                <FormControl id="recipe">
-                    <FormLabel mb={6} id="find-recipe" >Find a Recipe</FormLabel>
-                    <Input backgroundColor="white" type="text" placeholder="Search..."/>
-                </FormControl>
-                <Button mt={4} colorScheme="teal" type="submit">Search</Button>
-          
-            </Box>
-        </Box>
+        <SearchBar />
       </Container>
-      <Container>
+      <Container maxW="container.xlg" display="flex" mt="10">
           <Box>
             <RecipeCards
             recipes={recipes}/>

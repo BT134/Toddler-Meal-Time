@@ -1,0 +1,28 @@
+#search-bar {
+    position: absolute;
+    display:inline-block;
+    z-index: 9999;
+    margin-top: 200px;
+    flex-shrink: 2;
+}
+
+@media (max-width:768px) {
+    #search-bar {
+      height: 50%;
+      margin-top: 100px;
+      width: 50%;
+      margin-left:auto;
+      margin-right:auto;
+    }
+  }
+
+  @media (max-width:468px) {
+    #search-bar {
+      height: 50%;
+      margin-top: 10px;
+      width: 50%;
+      margin-left:auto;
+      margin-right:auto;
+      flex-shrink: 2;
+    }
+  }

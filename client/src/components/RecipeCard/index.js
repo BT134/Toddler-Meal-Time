@@ -1,24 +1,33 @@
 import React from 'react'; 
-import Cards from '../Cards'
-import recipeData from '../../recipeData.json'
-import { Container } from "@chakra-ui/react"
+import { Box, LinkBox, LinkOverlay, Image, Heading, Grid } from "@chakra-ui/react"
 
 
-function Wrapper(props) {
-    return <div>{props.children}</div>;
-}
-
-function RecipeCards () {  
+function RecipeCards ( {recipes} ) {  
 
     return (
-        <Container>
-          <Wrapper id="card-data">
-            {recipeData.map((recipe) => (
-              <Cards key={recipe.id} image={recipe.image} name={recipe.title} />
+        <Box>
+            <Heading as="h4" size="md">Recently Added:</Heading>
+            <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
+            {recipes.slice(0, 8).map((recipes) => (
+            <LinkBox w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <Image src={recipes.image} />
+                    <LinkOverlay href={recipes.recipeId}>
+                    <Box p="6">
+                    <Box
+                    mt="1"
+                    fontWeight="semibold"
+                    as="h4"
+                    lineHeight="tight"
+                    isTruncated
+                    >   
+                    {recipes.title}
+                    </Box>
+                    </Box>
+                    </LinkOverlay>
+            </LinkBox> 
             ))}
-          </Wrapper>
-        </Container>
-    
+            </Grid>
+        </Box>
     );
   }
 
