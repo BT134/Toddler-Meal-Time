@@ -1,17 +1,16 @@
 import React from 'react'; 
-import { Box, LinkBox, LinkOverlay, Image, Heading, Grid } from "@chakra-ui/react"
-
+import { Box, LinkBox, Image, Heading, Grid } from "@chakra-ui/react"
+import { Link as ReactLink} from 'react-router-dom';
 
 function RecipeCards ( {recipes} ) {  
 
     return (
         <Box>
-            <Heading as="h4" size="md">Recently Added:</Heading>
+            <Heading as="h4" size="md">Recently Added Recipes:</Heading>
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
             {recipes.slice(0, 8).map((recipes) => (
-            <LinkBox w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+            <LinkBox as={ReactLink} to={`/recipe/${recipes._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
                 <Image src={recipes.image} />
-                    <LinkOverlay href={recipes.recipeId}>
                     <Box p="6">
                     <Box
                     mt="1"
@@ -23,7 +22,7 @@ function RecipeCards ( {recipes} ) {
                     {recipes.title}
                     </Box>
                     </Box>
-                    </LinkOverlay>
+                    
             </LinkBox> 
             ))}
             </Grid>

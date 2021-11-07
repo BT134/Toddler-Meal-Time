@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import { Button, Container, Box, FormControl, FormLabel, Heading } from "@chakra-ui/react"
+import { Button, Container, Box, Heading } from "@chakra-ui/react"
 
 import Auth from '../utils/auth';
 

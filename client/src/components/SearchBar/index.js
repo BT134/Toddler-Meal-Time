@@ -5,12 +5,12 @@ import { Box, Container, Image, FormControl,
     Button } from "@chakra-ui/react"
 import './index.css';
 
-function SearchBar ( { data } ) {
+function SearchBar () {
     return (
-        <Container maxW="container.xlg" centerContent>
-        <Box width="100pv">
+        <Container maxW="container.xlg" centerContent >
+        
             <Image src="../images/food-background.png" alt="healthy food background" fit/>
-        </Box>
+        
             <Box width="600px" textAlign="center" id="search-bar">
                 
                 <FormControl id="recipe">
