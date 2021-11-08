@@ -57,7 +57,7 @@ function App() {
             <Route exact path="/me">
               <Profile />
             </Route>
-            <Route exact path="/recipe">
+            <Route exact path="/recipe/:recipeId">
               <RecipePage />
             </Route>
           </div>

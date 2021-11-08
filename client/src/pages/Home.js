@@ -19,9 +19,9 @@ const Home = () => {
 
   return (
     <main>
-      <Container maxW="container.xlg" centerContent>
+      <Box>
         <SearchBar />
-      </Container>
+      </Box>
       <Container maxW="container.xlg" display="flex" mt="10">
           <Box>
             <RecipeCards

@@ -15,6 +15,7 @@ const resolvers = {
       return Recipes.find(params).sort({ createdAt: -1 });
     },
     recipe: async (parent, { recipeId }) => {
+      console.log(recipeId)
       return Recipes.findOne({ _id: recipeId });
     },
     me: async (parent, args, context) => {

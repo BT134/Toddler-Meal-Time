@@ -26,7 +26,7 @@ const typeDefs = gql`
     user(id: String!): User
     users: [User]
     recipes: [Recipe]
-    recipe: Recipe
+    recipe(recipeId: ID!): Recipe
     me: User
   }
 
