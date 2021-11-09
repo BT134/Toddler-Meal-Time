@@ -12,40 +12,51 @@ const SearchBar = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [searchInput, setSearchInput] = useState("");
 
-    const [executeSearch, data ] = useLazyQuery(QUERY_SEARCH_RECIPES);
+    const [executeSearch, { data, error }] = useLazyQuery(QUERY_SEARCH_RECIPES);
 
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-            if (!searchInput) {
-      return false;
-    }
+       
+        if (!searchInput) {
+          return false;
+        }
 
-    try {
-      const response = await executeSearch(searchInput);
+        try {
+            console.log('searchInput-->', searchInput)
+       
+        const data = await executeSearch({
+            variables: { filter: searchInput }
+            }
+        );
+        if(error) {
+            console.log(error)
+        }
+        console.log('data',data)
 
-      if (!response.ok) {
-        throw new Error("something went wrong!");
-      }
+/*         if (!response.ok) {
+            throw new Error("something went wrong!");
+        } */
 
-      const { items } = await response.json();
+        //const { items } = await response.json();
 
-      const recipeData = items.map((recipe) => ({
-        recipeId: recipe._id,
-        title: recipe.title,
-        image: recipe.image,
-        ingredients: recipe.ingredients,
-        method: recipe.method,
-        preptime: recipe.preptime,
-        cooktime: recipe.cooktime,
-      }));
 
-      setSearchedRecipes(recipeData);
-      setSearchInput("");
-    } catch (err) {
-      console.error(err);
-    }
+      /*   const recipeData = items.map((recipe) => ({
+            recipeId: recipe._id,
+            title: recipe.title,
+            image: recipe.image,
+            ingredients: recipe.ingredients,
+            method: recipe.method,
+            preptime: recipe.preptime,
+            cooktime: recipe.cooktime,
+        })); */
+
+        //setSearchedRecipes(data);
+        setSearchInput("");
+        } catch (err) {
+        console.error(err);
+        }
   };
  
 
@@ -55,20 +66,17 @@ const SearchBar = () => {
             <Image src="../images/food-background.png" alt="healthy food background" objectFit="cover"/>
         
             <Box width="600px" textAlign="center" id="search-bar">
-                
-                <FormControl id="recipe" onSubmit={handleFormSubmit}>
+                <form onSubmit={handleFormSubmit}>
+                <FormControl id="recipe">
                     <FormLabel mb={6} id="find-recipe" >Find a Recipe</FormLabel>
                     <Input backgroundColor="white" type="text" placeholder="Search..."
                     value={searchInput}
+                    autoComplete='off'
                     onChange={(e) => setSearchInput(e.target.value)} />
                 </FormControl>
-                <Button mt={4} colorScheme="teal" type="submit" onClick={() =>
-                    executeSearch({
-                    variables: { filter: searchInput }
-                    })}>
-                    Search
-                    </Button>
-          
+                    <Button mt={4} colorScheme='teal' type='submit'>Search</Button>
+                </form>
+
             </Box>
                 <h2>
                 {searchedRecipes.length

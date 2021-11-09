@@ -43,11 +43,12 @@ const RecipePage = () => {
         <Container>
             <Box>
             <Heading as="h3" size="md">Ingredients:</Heading>
-            {recipe.ingredients.map((recipe) => (
                 <UnorderedList>
+                    {recipe.ingredients.map((recipe) => (
                     <ListItem>{recipe}</ListItem>
+                    ))}
               </UnorderedList>
-            ))}
+            
             </Box>
             <Box>
             <Heading as="h3" size="md">Method:</Heading>
