@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useLazyQuery } from '@apollo/client';
 import { LinkBox, Box, Grid, Container, Image, FormControl, FormLabel, Input, Button, Heading } from "@chakra-ui/react"
-import { QUERY_SEARCH_RECIPES } from '../../utils/queries';
+import { QUERY_SEARCH_INGREDIENTS } from '../utils/queries';
 import { Link as ReactLink} from 'react-router-dom';
-import './index.css';
+import '../App.css';
 
-const SearchBar = () => {
+const SearchIngredients = () => {
     const [searchedRecipes, setSearchedRecipes] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    const [executeSearch, { data, error }] = useLazyQuery(QUERY_SEARCH_RECIPES);
+    const [executeSearch, { data, error }] = useLazyQuery(QUERY_SEARCH_INGREDIENTS);
 
     useEffect(() => {
         async function getRecipes() {
@@ -53,7 +53,7 @@ const SearchBar = () => {
             <Box width="600px" textAlign="center" id="search-bar">
                 <form onSubmit={handleFormSubmit}>
                 <FormControl id="recipe">
-                    <FormLabel mb={6} id="find-recipe" >Find a Recipe</FormLabel>
+                    <FormLabel mb={6} id="find-recipe" >Search Recipes by an Ingredient</FormLabel>
                     <Input backgroundColor="white" type="text" placeholder="Search..."
                     value={searchInput}
                     autoComplete='off'
@@ -68,7 +68,7 @@ const SearchBar = () => {
             <Heading as="h4" size="md" mt="10" ml="4">
                 {searchedRecipes.length
                     ? `Found ${searchedRecipes.length} Recipe(s):`
-                    : "Search for a Recipe to begin"}
+                    : ""}
             </Heading>
 
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" > 
@@ -92,8 +92,11 @@ const SearchBar = () => {
             )})}
             </Grid>
         </Box>
+        <br></br>
+        <br></br>
+        <br></br>
     </>
     )
 }
 
-export default SearchBar;
+export default SearchIngredients;

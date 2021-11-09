@@ -27,6 +27,8 @@ const typeDefs = gql`
     users: [User]
     recipes: [Recipe]
     recipe(recipeId: ID!): Recipe
+    getRecipes(filter: String!): [Recipe]
+    searchIngredients(filter: String!): [Recipe]
     me: User
   }
 

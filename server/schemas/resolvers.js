@@ -18,6 +18,12 @@ const resolvers = {
       console.log(recipeId)
       return Recipes.findOne({ _id: recipeId });
     },
+    getRecipes: async (parent, args, context) => {
+      return Recipes.find({ title: {'$regex': args.filter, '$options': 'i'}});
+    },
+    searchIngredients: async (parent, args, context) => {
+      return Recipes.find({ ingredients: {'$regex': args.filter, '$options': 'i'}});
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate('savedRecipe');

@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Discover from './pages/Discover';
+import SearchIngredients from './pages/Ingredients';
 //import MyRecipes from './pages/MyRecipes';
 import Profile from './pages/Profile';
 import RecipePage from './components/RecipePage';
@@ -59,6 +61,12 @@ function App() {
             </Route>
             <Route exact path="/recipe/:recipeId">
               <RecipePage />
+            </Route>
+            <Route exact path="/discover">
+              <Discover />
+            </Route>
+            <Route exact path="/search-ingredients">
+              <SearchIngredients />
             </Route>
           </div>
           <Footer />

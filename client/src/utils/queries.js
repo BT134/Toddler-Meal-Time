@@ -26,7 +26,21 @@ export const QUERY_RECIPES = gql`
 
 export const QUERY_SEARCH_RECIPES = gql`
   query getRecipes($filter: String!) {
-    recipes(filter: $filter) {
+    getRecipes(filter: $filter) {
+      _id
+      title
+      image
+      ingredients
+      method
+      preptime
+      cooktime
+    }
+  }
+`;
+
+export const QUERY_SEARCH_INGREDIENTS= gql`
+  query getRecipes($filter: String!) {
+    getRecipes(filter: $filter) {
       _id
       title
       image
