@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { Container, Box, Image, Heading, ListItem, UnorderedList, OrderedList, Link } from "@chakra-ui/react"
+import { Container, Grid, GridItem, Box, Image, Heading, ListItem, UnorderedList, OrderedList, Link } from "@chakra-ui/react"
 import { QUERY_SINGLE_RECIPE } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
@@ -23,13 +23,19 @@ const RecipePage = () => {
 
     return (
         <>
-        <Container>
-            <Box>
+        <Container maxW='70%' centerContent mt="18" boxShadow="md" p="6" rounded="md" bg="white" p="8">
+        <Grid
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(6, 1fr)"
+            gap={4}
+            
+        >
+             <GridItem rowSpan={1} colSpan={2}>
                 <Image src={recipe.image} />
-            </Box>
-            <Box>
-                <Heading as="h2" size="md">{recipe.title}</Heading>
-                <Box p="6">
+            </GridItem>
+            <GridItem colSpan={3}>
+                <Heading as="h1" size="lg" color="teal">{recipe.title}</Heading>
+                <Box mt="24" >
                     Preptime: {recipe.preptime} Minutes
                     <br></br>
                     Cooktime: {recipe.cooktime} Minutes
@@ -38,28 +44,29 @@ const RecipePage = () => {
                     <Link>Save to My Recipe's</Link>
                 </Box>
                 
-            </Box>
-        </Container>
-        <Container>
-            <Box>
-            <Heading as="h3" size="md">Ingredients:</Heading>
+            </GridItem>
+        
+        
+            <GridItem colSpan={2} >
+            <Heading as="h3" size="md" mt="" mb="3">Ingredients:</Heading>
                 <UnorderedList>
                     {recipe.ingredients.map((recipe) => (
-                    <ListItem>{recipe}</ListItem>
+                    <ListItem p="1">{recipe}</ListItem>
                     ))}
               </UnorderedList>
             
-            </Box>
-            <Box>
-            <Heading as="h3" size="md">Method:</Heading>
+            </GridItem>
+            <GridItem colSpan={4} >
+            <Heading as="h3" size="md" mt="" mb="4">Method:</Heading>
             
                 <OrderedList>
                 {recipe.method.map((recipe) => (
-                    <ListItem>{recipe}</ListItem>
+                    <ListItem p="1" >{recipe}</ListItem>
                     ))}
                 </OrderedList>
             
-            </Box>
+            </GridItem>
+        </Grid>
         </Container>
         </>
     )
