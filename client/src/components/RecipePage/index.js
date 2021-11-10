@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { SAVE_RECIPE } from "../../utils/mutations";
 import Auth from '../../utils/auth';
 import { saveRecipeIds, getSavedRecipeIds } from "../../utils/localStorage";
-import { AddIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
 import { FaHeart } from "react-icons/fa"
 
@@ -14,7 +13,7 @@ import { FaHeart } from "react-icons/fa"
 const RecipePage = () => {
     const { recipeId } = useParams();
     const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
-
+    const [recipes, setRecipe] = useState([]);
     const {loading, data } = useQuery(QUERY_SINGLE_RECIPE, {
         variables: {recipeId: recipeId }
     }); 
@@ -30,9 +29,12 @@ const RecipePage = () => {
     const recipe = data?.recipe || {};
 
     console.log(recipe)
+    
+    //setRecipe(recipe);
+   
 
-    const handleSaveRecipe = async(recipeId) => {
-        const recipeToSave = recipe.find((recipe) => recipe.recipeId === recipeId);
+    const handleSaveRecipe = async(_id) => {
+        const recipeToSave = recipe.find((recipe) => recipe._id === _id);
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if(!token) {
@@ -47,7 +49,7 @@ const RecipePage = () => {
             if (!response) {
                 throw new Error('Something went wrong!')
             }
-            setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
+            setSavedRecipeIds([...savedRecipeIds, recipeToSave._id]);
 
         } catch (err) {
             console.error(error);
@@ -60,8 +62,8 @@ const RecipePage = () => {
 
 
     return (
-        <>
-        <Container maxW='70%' centerContent mt="18" boxShadow="md" p="6" rounded="md" bg="white" p="8">
+        
+        <Container key={recipe._id} maxW='70%' centerContent mt="18" boxShadow="md" p="6" rounded="md" bg="white" p="8">
         <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(6, 1fr)"
@@ -86,13 +88,13 @@ const RecipePage = () => {
                         aria-label='save recipe'
                         variant="outline"
                         disabled={savedRecipeIds?.some(
-                        (savedRecipeId) => savedRecipeId === recipe.recipeId
+                        (savedRecipeId) => savedRecipeId === recipe._id
                         )}
-                        onClick={() => handleSaveRecipe(recipe.recipeId)}
+                        onClick={() => handleSaveRecipe(recipe._id)}
                         >
                         Save to My Recipe's    
                         {savedRecipeIds?.some(
-                        (savedRecipeId) => savedRecipeId === recipe.recipeId)
+                        (savedRecipeId) => savedRecipeId === recipe._id)
                         }
                          
                         </Button>
@@ -125,7 +127,7 @@ const RecipePage = () => {
             </GridItem>
         </Grid>
         </Container>
-        </>
+        
     )
 };
   export default RecipePage;

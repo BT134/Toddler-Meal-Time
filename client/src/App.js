@@ -8,7 +8,6 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Discover from './pages/Discover';
 import SearchIngredients from './pages/Ingredients';
-//import MyRecipes from './pages/MyRecipes';
 import Profile from './pages/Profile';
 import RecipePage from './components/RecipePage';
 import Header from './components/Header';

@@ -43,6 +43,10 @@ const typeDefs = gql`
     recipeId: ID!
     title: String!
     image: String
+    ingredients: [String]
+    method: [String]
+    preptime: Int
+    cooktime: Int
   }
 `;
 

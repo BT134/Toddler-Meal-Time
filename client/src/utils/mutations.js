@@ -30,7 +30,7 @@ export const SAVE_RECIPE = gql`
       username
       _id
       savedRecipes {
-        recipeId
+        _id
         title
         image
       }
@@ -44,7 +44,7 @@ export const REMOVE_RECIPE = gql`
       username
       _id
       savedRecipes {
-        recipeId
+        _id
         title
         image
       }

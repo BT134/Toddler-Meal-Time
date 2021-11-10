@@ -18,6 +18,7 @@ const Profile = () => {
 
   const handleDeleteRecipe = async (recipeId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+    
     if(!token) {
         return false;
     }
@@ -38,7 +39,7 @@ const Profile = () => {
   if (loading) {
     return <Heading>Loading......</Heading>;
   }
-
+  
   const savedRecipeIds = userData.savedRecipes.map((recipe) => recipe.recipeId);
   saveRecipeIds(savedRecipeIds);
 

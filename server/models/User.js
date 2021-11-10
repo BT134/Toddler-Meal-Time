@@ -20,12 +20,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  Recipes: [
+  savedRecipes: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Recipes',
     },
-  ],
+  ]
 });
 
 // set up pre-save middleware to create password
