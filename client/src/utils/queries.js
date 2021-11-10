@@ -76,10 +76,6 @@ export const QUERY_ME = gql`
         _id
         title
         image
-        ingredients
-        method
-        preptime
-        cooktime
       }
     }
   }

@@ -57,19 +57,11 @@ const resolvers = {
       return { token, user };
     },
 
-    saveRecipe: async (parent, args, context) => {
+    saveRecipe: async (parent, { input }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { savedRecipe: {
-                recipeId: args.recipeId,
-                title: args.title, 
-                image: args.image,
-                ingredients: args.ingredients,
-                method: args.method, 
-                perptime: args.preptime,
-                cooktime: args.cooktime,
-            } } },
+            { $addToSet: { savedRecipes: input } },
             { new: true, runValidators: true }
         );
   
@@ -78,11 +70,11 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
   
-    removeRecipe: async (parent, { recipeId, params }, context) => {
+    removeRecipe: async (parent, { recipeId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { savedRecipe: { recipeId: params.recipeId } } },
+            { $pull: { savedRecipes: { recipeId: recipeId } } },
             { new: true } 
 
         );

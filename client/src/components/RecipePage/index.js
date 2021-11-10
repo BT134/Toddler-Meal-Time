@@ -1,20 +1,58 @@
-import React from 'react'; 
-import { Container, Grid, GridItem, Box, Image, Heading, ListItem, UnorderedList, OrderedList, Link } from "@chakra-ui/react"
+import React, {useState, useEffect } from 'react'; 
+import { Container, Grid, GridItem, Box, Image, Heading, ListItem, UnorderedList, OrderedList, Button } from "@chakra-ui/react"
 import { QUERY_SINGLE_RECIPE } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
+import { SAVE_RECIPE } from "../../utils/mutations";
+import Auth from '../../utils/auth';
+import { saveRecipeIds, getSavedRecipeIds } from "../../utils/localStorage";
+import { AddIcon } from '@chakra-ui/icons';
+import { useMutation } from '@apollo/client';
+import { FaHeart } from "react-icons/fa"
 
 
 const RecipePage = () => {
     const { recipeId } = useParams();
-    
+    const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
+
     const {loading, data } = useQuery(QUERY_SINGLE_RECIPE, {
         variables: {recipeId: recipeId }
     }); 
             
+    useEffect(() => {
+        return () => {
+            saveRecipeIds(savedRecipeIds);
+        };
+    });
+
+    const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
+
     const recipe = data?.recipe || {};
 
     console.log(recipe)
+
+    const handleSaveRecipe = async(recipeId) => {
+        const recipeToSave = recipe.find((recipe) => recipe.recipeId === recipeId);
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if(!token) {
+            return false;
+        }
+        try {
+            const response = await saveRecipe({
+                variables: {
+                    input: recipeToSave,
+                },
+            });
+            if (!response) {
+                throw new Error('Something went wrong!')
+            }
+            setSavedRecipeIds([...savedRecipeIds, recipeToSave.recipeId]);
+
+        } catch (err) {
+            console.error(error);
+        }
+    };
 
     if (loading) {
         return <div>Loading...</div>;
@@ -41,7 +79,26 @@ const RecipePage = () => {
                     Cooktime: {recipe.cooktime} Minutes
                     <br></br>
                     <br></br>
-                    <Link>Save to My Recipe's</Link>
+                    {Auth.loggedIn() && (
+                        <Button
+                        leftIcon={<FaHeart />}
+                        colorScheme='pink'
+                        aria-label='save recipe'
+                        variant="outline"
+                        disabled={savedRecipeIds?.some(
+                        (savedRecipeId) => savedRecipeId === recipe.recipeId
+                        )}
+                        onClick={() => handleSaveRecipe(recipe.recipeId)}
+                        >
+                        Save to My Recipe's    
+                        {savedRecipeIds?.some(
+                        (savedRecipeId) => savedRecipeId === recipe.recipeId)
+                        }
+                         
+                        </Button>
+                        
+                    )}
+                
                 </Box>
                 
             </GridItem>
