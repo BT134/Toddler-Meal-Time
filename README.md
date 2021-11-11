@@ -9,6 +9,7 @@
   - [User Story](#user-story)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Screenshots](#screenshots)
   - [Tests](#tests)
   - [Built With](#built-with)
   - [Acknowledgements](#acknowledgements)
@@ -24,11 +25,21 @@ SO THAT I can create meals that my kids will love and eat any time of the day
 
 ## Installation
 
+1. Download or clone repository
+2. `yarn install` to install the required packages to run
+3. `yarn start` to start the application locally
 
 ## Usage
 
-App can be viewed [HERE]()
+Toddler Meal Time App can be viewed [HERE](https://quiet-gorge-17087.herokuapp.com/)
 
+## Screenshots
+
+Home Page
+<img src="client\public\images\app-screenshot.JPG" alt= "Screenshot of toddler meal time search page">
+
+Discover all Recipes Page
+<img src="client\public\images\Discover-recipes.JPG" alt= "Screenshot of discover newly added recipes page">
 
 ## Tests
 
