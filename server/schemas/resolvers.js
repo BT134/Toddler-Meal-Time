@@ -65,7 +65,7 @@ const resolvers = {
             { $addToSet: { savedRecipes: input } },
             { new: true, runValidators: true }
         );
-  
+          console.log(input);
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
