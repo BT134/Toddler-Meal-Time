@@ -40,7 +40,7 @@ const typeDefs = gql`
   }
   
   input savedRecipeInput {
-    recipeId: ID!
+    _id: ID!
     title: String!
     image: String
     ingredients: [String]

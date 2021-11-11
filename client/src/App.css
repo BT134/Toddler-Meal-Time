@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Balsamiq+Sans&display=swap');
+
 .App {
   text-align: center;
 }
@@ -12,7 +14,32 @@
 }
 
 #form-input {
-  padding: 0px;
+  padding: 5px;
+  
+}
+
+#form-signup {
+  padding: 5px;
+}
+
+#form-login {
+  padding: 5px;
+}
+
+input {
+  margin-right: 10px;
+}
+
+#results {
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+#login {
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+#signup {
+  font-family: 'Balsamiq Sans', cursive;
 }
 
 @media (prefers-reduced-motion: no-preference) {

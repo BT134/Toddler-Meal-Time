@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link as ReactLink} from 'react-router-dom';
 import { Link } from "@chakra-ui/react"
-import { Box, Container, Heading } from "@chakra-ui/react"
+import { Box, Container, Heading, Divider } from "@chakra-ui/react"
 import Auth from '../../utils/auth';
+import './index.css';
 
 const Header = () => {
   const logout = (event) => {
@@ -14,12 +15,12 @@ const Header = () => {
       <Container maxW="container.xlg" mb={6}>
         <Box textAlign="center" pb={4} >
           <ReactLink to="/">
-            <Heading as="h1" size="3xl">TMT</Heading>
+            <Heading as="h1" size="3xl" id="page-logo">TMT</Heading>
           </ReactLink>
-          <p>Toddler Meal Times</p>
+          <p id="page-header">Toddler Meal Times</p>
         </Box>
         
-        <Box textAlign="center" p={2} >
+        <Box textAlign="center" p={2} id="header" >
           {Auth.loggedIn() ? (
             <>
               <Link pr={6} as={ReactLink} to="/" >
@@ -59,6 +60,8 @@ const Header = () => {
             </>
           )}
         </Box>
+        <Divider mb="8"/>
+
       </Container>
     </header>
   );

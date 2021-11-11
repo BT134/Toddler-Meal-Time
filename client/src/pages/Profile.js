@@ -7,6 +7,7 @@ import { Grid, Box, Heading, Flex, VStack, Text, LinkBox, Image, IconButton } fr
 import { Link as ReactLink} from 'react-router-dom';
 import { DeleteIcon } from '@chakra-ui/icons'
 import Auth from '../utils/auth';
+import '../App.css'
 
 const Profile = () => {
   
@@ -16,7 +17,7 @@ const Profile = () => {
 
   const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE);
 
-  const handleDeleteRecipe = async (recipeId) => {
+  const handleDeleteRecipe = async (_id) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     
     if(!token) {
@@ -24,13 +25,13 @@ const Profile = () => {
     }
     try {
         const response = await removeRecipe({
-            variables: { recipeId: recipeId },
+            variables: { recipeId: _id },
         });
 
         if (!response) {
             throw new Error('Something went wrong!');
         }
-        removeRecipeId(recipeId);
+        removeRecipeId(_id);
     } catch (err) {
         console.error(error);
     }
@@ -40,23 +41,25 @@ const Profile = () => {
     return <Heading>Loading......</Heading>;
   }
   
-  const savedRecipeIds = userData.savedRecipes.map((recipe) => recipe.recipeId);
+  const savedRecipeIds = userData.savedRecipes.map((recipe) => recipe._id);
+  console.log(savedRecipeIds)
   saveRecipeIds(savedRecipeIds);
 
   return (
-    <Box>
+    <Box id="results">
       <Flex py={10}>
         <VStack w='full' h='full' p={4} spacing={10}>
           <Text align='left' fontSize='xl' fontWeight='bold'>
             {userData.savedRecipes.length
-              ? `Viewing ${userData.savedRecipes.length} saved ${userData.savedRecipes.length === 1 ? 'Recipe' : 'Recipes'}:`
+              ? `Viewing ${userData.savedRecipes.length} Saved ${userData.savedRecipes.length === 1 ? 'Recipe' : 'Recipes'}:`
               : "You have no recipe's saved!"}
           </Text>
           <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
-            {userData.savedRecipes.map((recipes) => {
+            {userData.savedRecipes.map((recipe) => {
               return (
-            <LinkBox key={recipes.recipeId} as={ReactLink} to={`/recipe/${recipes._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-                <Image src={recipes.image} />
+                <Box>
+            <LinkBox key={recipe._id} as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <Image src={recipe.image} />
                     <Box p="6">
                     <Box
                       mt="1"
@@ -65,18 +68,21 @@ const Profile = () => {
                       lineHeight="tight"
                       isTruncated
                     >   
-                    {recipes.title}
+                    {recipe.title}
                     </Box>
-                    <IconButton
-                      colorScheme='red'
-                      aria-label='delete recipe'
-                      icon={<DeleteIcon/>}
-                      onClick={() => handleDeleteRecipe(recipes.recipeId)}
-                      />
+
                     </Box>
                     
             </LinkBox>
+                                <IconButton
+                                colorScheme='red'
+                                aria-label='delete recipe'
+                                icon={<DeleteIcon/>}
+                                onClick={() => handleDeleteRecipe(recipe._id)}
+                                />
+                                </Box>
               ) 
+              
             })}
             </Grid>      
         </VStack>

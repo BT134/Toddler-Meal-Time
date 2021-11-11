@@ -48,7 +48,7 @@ const SearchIngredients = () => {
         <>
         <Container maxW="100%" centerContent >
         
-            <Image src="../images/food-background.png" alt="healthy food background" objectFit="cover"/>
+            <Image src="../images/food-background2.png" alt="healthy food background" objectFit="cover"/>
         
             <Box width="600px" textAlign="center" id="search-bar">
                 <form onSubmit={handleFormSubmit}>

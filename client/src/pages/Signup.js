@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Box, Heading } from "@chakra-ui/react"
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
+import '../App.css'
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -40,9 +40,9 @@ const Signup = () => {
 
   return (
     <main>
-      <Container maxW="container.md" mt={20} centerContent>
+      <Container maxW="container.md" mt={20} centerContent id="signup">
         <Box borderWidth="1px" borderRadius="lg" p="8" shadow="xl">
-          <Heading as="h4" size="md" mb={4}>Sign Up</Heading>
+          <Heading as="h4" size="md" mb={4} id="signup">Sign Up</Heading>
           <div className="card-body">
             {data ? (
               <p>
@@ -50,31 +50,40 @@ const Signup = () => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} id="form-signup">
                 <input
                   className="form-input"
+                  id="form-input"
                   placeholder="Your username"
                   name="username"
                   type="text"
                   value={formState.name}
                   onChange={handleChange}
                 />
+                &nbsp;
+                &nbsp;
                 <input
                   className="form-input"
+                  id="form-input"
                   placeholder="Your email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
+                &nbsp;
+                &nbsp;
                 <input
                   className="form-input"
+                  id="form-input"
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
+                &nbsp;
+                &nbsp;
                 <Button
                   color="teal"
                   style={{ cursor: 'pointer' }}

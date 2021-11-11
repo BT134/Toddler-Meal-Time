@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Balsamiq+Sans&display=swap');
+
+#page-logo {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 90px;
+    font-weight: bolder;
+}
+
+#page-header{
+    font-family: 'Architects Daughter', cursive;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+#header {
+    font-family: 'Balsamiq Sans', cursive;
+}

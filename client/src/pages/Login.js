@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import { Button, Container, Box, Heading } from "@chakra-ui/react"
-
+import '../App.css'
 import Auth from '../utils/auth';
 
 const Login = (props) => {
@@ -43,9 +43,9 @@ const Login = (props) => {
 
   return (
     <main>
-      <Container maxW="container.md" mt={20} centerContent>
+      <Container maxW="container.md" mt={20} centerContent id="login">
         <Box borderWidth="1px" borderRadius="lg" p="8" shadow="xl">
-          <Heading as="h4" size="md" pb={2} >Login</Heading>
+          <Heading as="h4" size="md" pb={2} id="login">Login</Heading>
           <div className="card-body">
             {data ? (
               <p>
@@ -53,7 +53,7 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} id="form-login">
                 <input
                   className="form-input"
                   id="form-input"
@@ -64,14 +64,19 @@ const Login = (props) => {
                   onChange={handleChange}
                   
                 />
+                &nbsp;
+                &nbsp;
                 <input
                   className="form-input"
+                  id="form-input"
                   placeholder="******"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
+                &nbsp;
+                &nbsp;
                 <Button 
                   ml={4}
                   colorScheme="teal"

@@ -1,25 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Balsamiq+Sans&display=swap');
+
 #search-bar {
     position: absolute;
     display:inline-block;
     z-index: 9999;
     margin-top: 200px;
     flex-shrink: 2;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+#find-recipe {
+    font-size: 20px;
+}
+
+#recipe-card {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+#results-header {
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 @media (max-width:768px) {
     #search-bar {
       height: 50%;
-      margin-top: 100px;
+      margin-top: 50px;
       width: 50%;
       margin-left:auto;
       margin-right:auto;
+      
     }
   }
 
   @media (max-width:468px) {
     #search-bar {
       height: 50%;
-      margin-top: 10px;
+      margin-top:  10px;
       width: 50%;
       margin-left:auto;
       margin-right:auto;
