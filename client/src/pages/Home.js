@@ -21,9 +21,7 @@ const Home = () => {
       </Box>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
     </main>
   );
 };

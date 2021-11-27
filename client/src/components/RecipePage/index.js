@@ -4,6 +4,7 @@ import { QUERY_SINGLE_RECIPE } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { SAVE_RECIPE } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 import Auth from '../../utils/auth';
 import { saveRecipeIds, getSavedRecipeIds } from "../../utils/localStorage";
 import { useMutation } from '@apollo/client';
@@ -41,6 +42,25 @@ const RecipePage = () => {
         if(!token) {
             return false;
         }
+
+/*         try {
+            await saveRecipe({
+              variables: { recipe: recipeToSave },
+              update: (cache) => {
+                const { me } = cache.readQuery({ query: QUERY_ME });
+                // console.log(me)
+                // console.log(me.savedBooks)
+                cache.writeQuery({
+                  query: QUERY_ME,
+                  data: { me: { ...me, savedRecipes: [...me.savedRecipes, recipeToSave] } },
+                });
+              },
+            });
+            setSavedRecipeIds([...savedRecipeIds, recipeToSave._id]);
+            } catch (err) {
+            console.error(error);
+        } */
+
         try {
             const response = await saveRecipe({
                 variables: {
@@ -55,6 +75,7 @@ const RecipePage = () => {
         } catch (err) {
             console.error(error);
         }
+
     };
 
     if (loading) {
@@ -64,7 +85,7 @@ const RecipePage = () => {
 
     return (
         
-        <Container key={recipe._id} maxW='70%' centerContent mt="18" boxShadow="md" p="6" rounded="md" bg="white" p="8" id="recipe-page">
+        <Container key={recipe._id} maxW='70%' centerContent mt="18" boxShadow="md" rounded="md" bg="white" p="8" id="recipe-page">
         <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(6, 1fr)"
@@ -93,9 +114,11 @@ const RecipePage = () => {
                         )}
                         onClick={() => handleSaveRecipe(recipe._id)}
                         >
-                        Save to My Recipe's    
+                           
                         {savedRecipeIds?.some(
                         (savedRecipeId) => savedRecipeId === recipe._id)
+                        ? "This Recipe has already been saved!"
+                        : "Save to My Recipe's"
                         }
                          
                         </Button>

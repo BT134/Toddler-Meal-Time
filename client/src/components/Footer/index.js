@@ -1,24 +1,15 @@
 import React from 'react';
-import { Box } from "@chakra-ui/react"
+
 
 const Footer = () => {
-
   return (
     <footer>
-      <Box position="absoulte" bottom="0">
+      <br></br>
+      <br></br>
+      <br></br>
         <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Brenton Turnor.
+          TMT | Designed and Developed by Brenton Turnor &copy; 2021 
         </h4>
-      </Box>
     </footer>
   );
 };

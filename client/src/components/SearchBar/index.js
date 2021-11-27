@@ -65,11 +65,11 @@ const SearchBar = () => {
 
             </Box>
         </Container>
-        <Box >
+        <Box m="4" >
             <Heading as="h4" size="md" mt="10" ml="4" id="results-header">
                 {searchedRecipes.length
                     ? `Found ${searchedRecipes.length} Recipe(s):`
-                    : "Search for a Recipe to begin"}
+                    : ""}
             </Heading>
 
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" > 
