@@ -3,7 +3,7 @@
 #search-bar {
     position: absolute;
     display:inline-block;
-    z-index: 9999;
+    z-index: 9;
     margin-top: 200px;
     flex-shrink: 2;
     font-family: 'Balsamiq Sans', cursive;

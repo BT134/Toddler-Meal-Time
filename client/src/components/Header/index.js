@@ -4,6 +4,8 @@ import { Link } from "@chakra-ui/react"
 import { Box, Container, Heading, Divider } from "@chakra-ui/react"
 import Auth from '../../utils/auth';
 import './index.css';
+import Login from '../../pages/LoginModal';
+import Signup from '../../pages/SignupModal';
 
 const Header = () => {
   const logout = (event) => {
@@ -51,12 +53,12 @@ const Header = () => {
               <Link pr={6} as={ReactLink} to="/discover">
                 Discover
               </Link>
-              <Link pr={6} as={ReactLink} to="/login">
-                Login
-              </Link>
-              <Link pr={6} as={ReactLink} to="/signup">
-                Signup
-              </Link>
+              <button id="login-button">
+                <Login />
+                </button>
+              <button id="signup-button">
+                <Signup />
+              </button>
             </>
           )}
         </Box>
