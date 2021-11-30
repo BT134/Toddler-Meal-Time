@@ -9,9 +9,9 @@ function RecipeCards ( {recipes} ) {
         <Box id="recipe-card">
             <Heading as="h4" size="md" id="recipe-title">Recently Added Recipes:</Heading>
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
-            {recipes.map((recipes) => (
-            <LinkBox as={ReactLink} to={`/recipe/${recipes._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-                <Image src={recipes.image} />
+            {recipes.map((recipe) => (
+            <LinkBox key={recipe._id} as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <Image src={recipe.image} />
                     <Box p="6">
                     <Box
                     mt="1"
@@ -20,7 +20,7 @@ function RecipeCards ( {recipes} ) {
                     lineHeight="tight"
                     isTruncated
                     >   
-                    {recipes.title}
+                    {recipe.title}
                     </Box>
                     </Box>
                     

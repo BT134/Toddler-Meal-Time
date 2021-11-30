@@ -3,7 +3,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { REMOVE_RECIPE } from "../utils/mutations";
 import { removeRecipeId, saveRecipeIds } from "../utils/localStorage";
 import { QUERY_ME } from '../utils/queries';
-import { Grid, Box, Heading, Flex, VStack, Text, LinkBox, Image, IconButton } from '@chakra-ui/react';
+import { Grid, Box, Heading, Flex, VStack, Text, LinkBox, Image, Button } from '@chakra-ui/react';
 import { Link as ReactLink} from 'react-router-dom';
 import { DeleteIcon } from '@chakra-ui/icons'
 import Auth from '../utils/auth';
@@ -46,7 +46,6 @@ const Profile = () => {
   saveRecipeIds(savedRecipeIds);
 
   return (
-    <Box id="results">
       <Flex py={10}>
         <VStack w='full' h='full' p={4} spacing={10}>
           <Text align='left' fontSize='xl' fontWeight='bold'>
@@ -58,36 +57,34 @@ const Profile = () => {
             {userData.savedRecipes.map((recipe) => {
               return (
                 <Box key={recipe._id}>
-            <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-                <Image src={recipe.image} />
+                  <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                    <Image src={recipe.image} />
                     <Box p="6">
-                    <Box
-                      mt="1"
-                      fontWeight="semibold"
-                      as="h4"
-                      lineHeight="tight"
-                      isTruncated
-                    >   
-                    {recipe.title}
+                      <Box
+                        mt="1"
+                        fontWeight="semibold"
+                        as="h4"
+                        lineHeight="tight"
+                        isTruncated
+                      >   
+                        {recipe.title}
+                      </Box>
                     </Box>
-
-                    </Box>
-                    
-            </LinkBox>
-                                <IconButton
-                                colorScheme='red'
-                                aria-label='delete recipe'
-                                icon={<DeleteIcon/>}
-                                onClick={() => handleDeleteRecipe(recipe._id)}
-                                />
-                                </Box>
+                  </LinkBox>
+                    <Button
+                      colorScheme='red'
+                      aria-label='delete recipe'
+                      icon={<DeleteIcon/>}
+                      onClick={() => handleDeleteRecipe(recipe._id)}
+                    >
+                    Remove Recipe
+                    </Button>
+                </Box>
               ) 
-              
             })}
-            </Grid>      
+          </Grid>      
         </VStack>
       </Flex>
-    </Box>
   );
 };
 

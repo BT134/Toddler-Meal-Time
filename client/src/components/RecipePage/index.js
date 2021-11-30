@@ -14,7 +14,6 @@ import './index.css'
 const RecipePage = () => {
     const { recipeId } = useParams();
     const [savedRecipeIds, setSavedRecipeIds] = useState(getSavedRecipeIds());
-    //const [recipes, setRecipes] = useState([]);
     const {loading, data } = useQuery(QUERY_SINGLE_RECIPE, {
         variables: {recipeId: recipeId }
     }); 
@@ -31,9 +30,6 @@ const RecipePage = () => {
 
     console.log(recipe)
 
-    //setRecipes(recipe.data);
-   
-
     const handleSaveRecipe = async(_id) => {
         const recipeToSave = recipe;
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -41,24 +37,6 @@ const RecipePage = () => {
         if(!token) {
             return false;
         }
-
-/*         try {
-            await saveRecipe({
-              variables: { recipe: recipeToSave },
-              update: (cache) => {
-                const { me } = cache.readQuery({ query: QUERY_ME });
-                // console.log(me)
-                // console.log(me.savedBooks)
-                cache.writeQuery({
-                  query: QUERY_ME,
-                  data: { me: { ...me, savedRecipes: [...me.savedRecipes, recipeToSave] } },
-                });
-              },
-            });
-            setSavedRecipeIds([...savedRecipeIds, recipeToSave._id]);
-            } catch (err) {
-            console.error(error);
-        } */
 
         try {
             const response = await saveRecipe({
@@ -81,17 +59,14 @@ const RecipePage = () => {
         return <div>Loading...</div>;
     }
 
-
     return (
-        
         <Container key={recipe._id} maxW='70%' centerContent mt="18" boxShadow="md" rounded="md" bg="white" p="8" id="recipe-page">
         <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(6, 1fr)"
-            gap={4}
-            
+            gap={4}   
         >
-             <GridItem rowSpan={1} colSpan={2}>
+            <GridItem rowSpan={1} colSpan={2}>
                 <Image src={recipe.image} />
             </GridItem>
             <GridItem colSpan={3}>
@@ -112,28 +87,23 @@ const RecipePage = () => {
                         (savedRecipeId) => savedRecipeId === recipe._id
                         )}
                         onClick={() => handleSaveRecipe(recipe._id)}
-                        >
-                           
+                        >  
                         {savedRecipeIds?.some(
                         (savedRecipeId) => savedRecipeId === recipe._id)
                         ? "This Recipe has already been saved!"
                         : "Save to My Recipe's"
                         }
-                         
-                        </Button>
-                        
+                        </Button>  
                     )}
-                
                 </Box>
                 
             </GridItem>
         
-        
             <GridItem colSpan={2} >
             <Heading as="h3" size="md" mt="" mb="3" id="ingredients">Ingredients:</Heading>
                 <UnorderedList>
-                    {recipe.ingredients.map((recipe) => (
-                    <ListItem p="1">{recipe}</ListItem>
+                    {recipe.ingredients.map((ingredient) => (
+                    <ListItem key={ingredient} p="1">{ingredient}</ListItem>
                     ))}
               </UnorderedList>
             
@@ -142,8 +112,8 @@ const RecipePage = () => {
             <Heading as="h3" size="md" mt="" mb="4" id="method">Method:</Heading>
             
                 <OrderedList>
-                {recipe.method.map((recipe) => (
-                    <ListItem p="1" >{recipe}</ListItem>
+                {recipe.method.map((method) => (
+                    <ListItem key={method} p="1" >{method}</ListItem>
                     ))}
                 </OrderedList>
             
