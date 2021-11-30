@@ -31,7 +31,7 @@ SO THAT I can create meals that my kids will love and eat any time of the day
 
 ## Usage
 
-Toddler Meal Time App can be viewed [HERE](https://quiet-gorge-17087.herokuapp.com/)
+Toddler Meal Time App can be viewed [HERE](https://toddler-meal-times.herokuapp.com/)
 
 ## Screenshots
 
