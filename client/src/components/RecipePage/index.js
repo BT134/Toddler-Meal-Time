@@ -1,10 +1,9 @@
 import React, {useState, useEffect } from 'react'; 
 import { Container, Grid, GridItem, Box, Image, Heading, ListItem, UnorderedList, OrderedList, Button } from "@chakra-ui/react"
-import { QUERY_SINGLE_RECIPE } from '../../utils/queries';
+import { QUERY_ME, QUERY_SINGLE_RECIPE } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { SAVE_RECIPE } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
 import Auth from '../../utils/auth';
 import { saveRecipeIds, getSavedRecipeIds } from "../../utils/localStorage";
 import { useMutation } from '@apollo/client';
@@ -26,7 +25,7 @@ const RecipePage = () => {
         };
     });
 
-    const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
+    const [saveRecipe, { error }] = useMutation(SAVE_RECIPE, {refetchQueries: [QUERY_ME]});
 
     const recipe = data?.recipe || [];
 

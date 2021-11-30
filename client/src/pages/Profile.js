@@ -11,11 +11,11 @@ import '../App.css'
 
 const Profile = () => {
   
-  const { loading, data } = useQuery(QUERY_ME);
-
+  const { loading, data } = useQuery(QUERY_ME, { fetchPolicy: "no-cache" });
+  console.log(data)
   const userData = data?.me || [];
 
-  const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE);
+  const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE, { refetchQueries: [QUERY_ME] });
 
   const handleDeleteRecipe = async (_id) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -57,8 +57,8 @@ const Profile = () => {
           <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
             {userData.savedRecipes.map((recipe) => {
               return (
-                <Box>
-            <LinkBox key={recipe._id} as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <Box key={recipe._id}>
+            <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
                 <Image src={recipe.image} />
                     <Box p="6">
                     <Box

@@ -73,9 +73,10 @@ const resolvers = {
   
     removeRecipe: async (parent, { recipeId }, context) => {
       if (context.user) {
+        console.log(recipeId)
         const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $pull: { savedRecipes: { recipeId: recipeId } } },
+            { $pull: { savedRecipes: recipeId } },
             { new: true } 
 
         );
