@@ -75,7 +75,7 @@ const SearchIngredients = () => {
                 {searchedRecipes.map((recipe) => {
             return (     
                 <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-                    <Image src={recipe.image} />
+                    <Image boxSize="460px" src={recipe.image} />
                         <Box p="6">
                         <Box
                         mt="1"

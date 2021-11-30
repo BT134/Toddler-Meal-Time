@@ -11,7 +11,7 @@ function RecipeCards ( {recipes} ) {
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" >
             {recipes.map((recipe) => (
             <LinkBox key={recipe._id} as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
-                <Image src={recipe.image} />
+                <Image boxSize='450px' src={recipe.image} />
                     <Box p="6">
                     <Box
                     mt="1"

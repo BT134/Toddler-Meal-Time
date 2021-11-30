@@ -69,14 +69,14 @@ const SearchBar = () => {
             <Heading as="h4" size="md" mt="10" ml="4" id="results-header">
                 {searchedRecipes.length
                     ? `Found ${searchedRecipes.length} Recipe(s):`
-                    : ""}
+                    : "No Recipes Found"}
             </Heading>
 
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" > 
                 {searchedRecipes.map((recipe) => {
             return (     
                 <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden" id="recipe-card"> 
-                    <Image src={recipe.image} />
+                    <Image boxSize="450px" src={recipe.image} />
                         <Box p="6">
                         <Box
                         mt="1"
