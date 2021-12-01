@@ -1,4 +1,4 @@
-# TMT - Toddler Meal Time 
+<h1 align="center">TMT - Toddler Meal Time</h1>
 
 <p align="center">
     <img src="https://img.shields.io/github/repo-size/BT134/Toddler-Meal-Time" />
