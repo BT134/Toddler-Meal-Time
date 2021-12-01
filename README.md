@@ -1,5 +1,23 @@
 # TMT - Toddler Meal Time 
-![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)
+
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/BT134/Toddler-Meal-Time" />
+    <img src="https://img.shields.io/github/languages/top/BT134/Toddler-Meal-Time"  />
+    <img src="https://img.shields.io/github/issues/BT134/Toddler-Meal-Time" />
+    <img src="https://img.shields.io/github/last-commit/BT134/Toddler-Meal-Time" />
+</p>
+  
+<p align="center">
+    <img src="https://img.shields.io/badge/VisualStudioCode-blue"/>
+    <img src="https://img.shields.io/badge/Javascript-yellow" />
+    <img src="https://img.shields.io/badge/-MongoDB-red" />
+    <img src="https://img.shields.io/badge/-Express-brightgreen" />
+    <img src="https://img.shields.io/badge/-React-blueviolet"/>
+    <img src="https://img.shields.io/badge/-Node.js-yellowgreen" />
+    <img src="https://img.shields.io/badge/-GraphQL-red" />
+    <img src="https://img.shields.io/badge/-ChakraUI-9cf" />
+</p>
+
 ## Description
 
 > A recipe search app designed specifically for Toddlers & Kids. Ever had a fussy kid? Dont know what to make them? Toddler Meal Time is here for you. Search from hundreds of recipes designed to be both healthy and enjoyed by kids. Recipes are stored in the database using Mongo DB. Utilising React.js for the front end with MERN devolpment. Users can search for recipes by name or search by ingredient. They can also save them to there "My Recipes" tab to view later. 
@@ -11,6 +29,7 @@
   - [Usage](#usage)
   - [Screenshots](#screenshots)
   - [Tests](#tests)
+  - [Licence](#licence)
   - [Built With](#built-with)
   - [Acknowledgements](#acknowledgements)
   - [Author](#author)
@@ -44,6 +63,10 @@ Discover all Recipes Page
 ## Tests
 
 > There are no tests for this app.
+
+## Licence
+
+![Github licence](http://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Built With
 
