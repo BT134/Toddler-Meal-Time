@@ -15,9 +15,11 @@ const Header = () => {
   return (
     <header className="header">
       <Container maxW="container.xlg" mb={6}>
-        <Box textAlign="center" pb={4} >
+        <Box textAlign="center" pb={4}  >
           <ReactLink to="/">
-            <Heading as="h1" size="3xl" id="page-logo">TMT</Heading>
+            <Box display="inline-flex" alignItems="center">
+            <Heading as="h1" size="3xl" id="page-logo" color="teal">T</Heading><Heading as="h1" size="3xl" id="page-logo"color="pink">M</Heading><Heading as="h1" size="3xl" id="page-logo" color="teal">T</Heading>
+            </Box>
           </ReactLink>
           <p id="page-header">Toddler Meal Times</p>
         </Box>

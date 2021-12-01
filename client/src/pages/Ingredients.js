@@ -74,7 +74,7 @@ const SearchIngredients = () => {
             <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={8} w="100%" > 
                 {searchedRecipes.map((recipe) => {
             return (     
-                <LinkBox as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
+                <LinkBox key={recipe._id} as={ReactLink} to={`/recipe/${recipe._id}`} w="100%" borderWidth="1px" borderRadius="lg" overflow="hidden"> 
                     <Image boxSize="460px" src={recipe.image} />
                         <Box p="6">
                         <Box
